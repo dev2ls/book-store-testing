@@ -141,15 +141,12 @@ from selenium.webdriver.support import expected_conditions as EC
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.implicitly_wait(5)
-
 # 1. Откройте http://practice.automationtesting.in/ # в этом тесте логиниться не нужно
 driver.get("http://practice.automationtesting.in/")
 # 2. Нажмите на вкладку "Shop"
 shop = driver.find_element_by_css_selector("#menu-item-40 > a").click()
 # 3. Добавьте в корзину книгу "HTML5 WebApp Development" # см. комментарии в самом низу
 book = driver.find_element_by_css_selector("[data-product_id='182']").click()
-
-# # ТЕСТ НЕ РАБОТАЕТ, выдает ошибку AssertionError
 # # 4. Добавьте тест, что возле коризны (вверху справа) количество товаров = "1 Item", а стоимость = "₹180.00". Используйте для проверки assert
 # cart_content = driver.find_element_by_class_name("cartcontents")
 # cart_content_text = cart_content.text
@@ -157,7 +154,6 @@ book = driver.find_element_by_css_selector("[data-product_id='182']").click()
 # cart_amount = driver.find_element_by_css_selector("#wpmenucartli .amount")
 # cart_amount_text = cart_amount.text
 # assert cart_amount == "₹180.00"
-
 # 5. Перейдите в корзину
 basket = driver.find_element_by_css_selector("[title='View Basket']").click()
 # 6. Используя явное ожидание, проверьте что в Subtotal отобразилась стоимость
